@@ -55,3 +55,17 @@ Set-Location $moduleFolder
 
 # Invoke the module template
 Invoke-PSMDTemplate MiniModule
+
+#!pwsh
+
+$psversiontable
+Get-Module PSFramework,PSModuleDevelopment,string | Select-Object Name,Version | Format-Table -AutoSize
+
+#!pwsh
+
+$errors = Get-PSFMessage -Errors
+$errors[0].Exceptions
+
+#!pwsh
+
+$errors[1].Exceptions
