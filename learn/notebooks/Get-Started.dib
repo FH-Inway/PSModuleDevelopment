@@ -1,0 +1,57 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Get Started
+
+This notebook will guide you through the first steps of using the PSModuleDevelopment module.
+
+## Prerequisites
+
+To make full use of this notebook, open it in Visual Studio Code with the PowerShell and Polyglot extensions installed.
+
+To use the PSModuleDevelopment PowerShell module, version 3.0 of PowerShell needs to be installed as well.
+
+## Installation
+
+The PSModuleDevelopment module can be installed from the PowerShell Gallery. To do so, run the following PowerShell command:
+
+#!pwsh
+
+Install-Module PSModuleDevelopment -Scope CurrentUser
+
+#!markdown
+
+### Installation prompts
+
+The installation may prompt you for questions / confirmations about core PowerShell configurations. You need to either accept or approve all the prompts for the module to work correctly. The prompts usually require you to enter "y" (for yes) or "a" (for "yes to all").
+
+## Importing the module
+
+Once the module is installed, it can be imported into the current PowerShell session. To do so, run the following command.
+
+#!pwsh
+
+Import-Module PSModuleDevelopment
+
+#!markdown
+
+## Using the module
+
+The PSModuleDevelopment module provides a number of functions to help with the development of PowerShell modules. The following sections will guide you through some of the key functions.
+
+### Use a template to create a new module
+
+Imagine you want to create a new PowerShell module, but you are unsure of the structure or what files you need to create. You can use the templating engine of PSModuleDevelopment to create a scaffolding folder and file structure for your new module. This is done with the `Invoke-PSMDTemplate` command. Make sure to run the  command in the root folder where you want to create the new module. The first few lines of the following code cell will create a new folder. It will then invoke the `MiniModule` template to create the scaffolding in that folder.
+The template invocation will prompt you for a name and description for the new module.
+
+#!pwsh
+
+# Switch to the module folder first
+$moduleFolder = [System.IO.Path]::GetTempPath() # Change this to e.g. "C:\Temp" on Windows or "/tmp" on Linux if you want to use a different folder for your module
+Set-Location $moduleFolder
+
+# Invoke the module template
+Invoke-PSMDTemplate MiniModule
